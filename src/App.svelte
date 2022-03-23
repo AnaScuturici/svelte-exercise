@@ -1,9 +1,17 @@
 <script>
-	export let name;
+	let name = "Ana";
+	let greeting = "How u doin'?";
+
+	const handleClick = () => {
+		greeting = "Doin' fine!"
+	}
+
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
+	<p>{greeting}</p>
+	<button on:click={handleClick}>Change text</button>
 </main>
 
 <style>
