@@ -1,24 +1,20 @@
 <script>
-	let name = "Ana";
+	let firstName = "Ana";
+	let lastName = "Sc";
 	let color = "red";
 
-	const handleClick = () => {
-		color = "blue";
-	}
-
-	const handleInput = (e) => {
-		color = e.target.value;
+	$: fullName = `${firstName} ${lastName}`;
+	$: {
+		console.log(color);
+		console.log(fullName);
 	}
 
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p style="color: {color}">{color}</p>
-	<button on:click={handleClick}>Change text</button>
-	<!--two way data binding
-	<input type="text" on:input={handleInput} value={greeting}> 
-	OR -->
+	<p style="color: {color}">{fullName} - {color}</p>
+	<input type="text" bind:value={firstName}>
+	<input type="text" bind:value={lastName}>
 	<input type="text" bind:value={color}>
 </main>
 
