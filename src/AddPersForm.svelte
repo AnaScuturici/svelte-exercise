@@ -11,12 +11,16 @@
 </script>
 
 <h3>Add new person</h3>
-<!--preventDefault event modifier-->
 <form on:submit|preventDefault={handleSubmit}>
     <input type="text" placeholder="name" bind:value={name}>
-    <input type="text" placeholder="color" bind:value={color}>
     <input type="number" placeholder="age" bind:value={age}>
-    <label>Skills:</label>
+    <label for="color">Color</label>
+    <select bind:value={color}>
+        <option>black</option>
+        <option>red</option>
+        <option>blue</option>
+    </select>
+    <label for="skills">Skills:</label>
     <input type="checkbox" bind:group={skills} value="fighting">fighting<br>
     <input type="checkbox" bind:group={skills} value="running">running<br>
     <input type="checkbox" bind:group={skills} value="sneaking">sneaking<br>
