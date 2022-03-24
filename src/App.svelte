@@ -1,21 +1,21 @@
 <script>
-	let firstName = "Ana";
-	let lastName = "Sc";
-	let color = "red";
-
-	$: fullName = `${firstName} ${lastName}`;
-	$: {
-		console.log(color);
-		console.log(fullName);
-	}
+	let people = [
+		{name: "a", color: "red", age: 25, id: 1},
+		{name: "b", color: "black", age: 22, id: 2},
+		{name: "c", color: "blue", age: 20, id: 3}
+	];
 
 </script>
 
 <main>
-	<p style="color: {color}">{fullName} - {color}</p>
-	<input type="text" bind:value={firstName}>
-	<input type="text" bind:value={lastName}>
-	<input type="text" bind:value={color}>
+	{#each people as person (person.id)}
+	<div>
+		<h4>{person.name}</h4>
+		<p>{person.age} years old, {person.color} belt</p>
+	</div>
+	{:else}
+	<p>There are no people to show...</p>
+	{/each}
 </main>
 
 <style>
