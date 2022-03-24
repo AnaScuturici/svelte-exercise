@@ -18,11 +18,16 @@
 	};
 
 </script>
-<!--click event occurs in the child component and it's invoked in the parent component-->
 
-<Modal message="I am a prop value" showModal={showModal} on:click={toggleModal}/> 
+<Modal showModal={showModal} on:click={toggleModal}>
+	<h3>Add a new person</h3>
+	<form>
+		<input type="text" placeholder="name">
+		<input type="text" placeholder="color">
+		<button>Add person</button>
+	</form>
+</Modal>
 <main>
-	<!--once event modifier - event only fires once-->
 	<button on:click|once={toggleModal}>Open Modal</button>
 	{#each people as person (person.id)}
 	<div>
