@@ -1,11 +1,15 @@
 <script>
     export let message = "default value"; //default value will display if no message value is passed as a prop in App
-    let showModal = true;
+    export let showModal = false;
     export let isPromo = false;
 </script>
 
+<!-- forward the click event on to the parent component
+register the event without passing any value
+invoque the event in the parent component-->
+
 {#if showModal}
-<div class="backdrop" class:promo={isPromo}>
+<div class="backdrop" class:promo={isPromo} on:click> 
     <div class="modal">
         <p>{message}</p>
     </div>

@@ -1,6 +1,12 @@
 <script>
 	import Modal from "./Modal.svelte";
 
+	let showModal = false;
+
+	const toggleModal = () => {
+		showModal = !showModal;
+	}
+
 	let people = [
 		{name: "A", color: "red", age: 25, id: 1},
 		{name: "B", color: "black", age: 22, id: 2},
@@ -11,12 +17,12 @@
 		people = people.filter(person => person.id !== id);
 	};
 
-	let num = 5;
-
 </script>
+<!--click event occurs in the child component and it's invoked in the parent component-->
 
-<Modal message="I am a prop value" isPromo={true}/>
+<Modal message="I am a prop value" showModal={showModal} on:click={toggleModal}/> 
 <main>
+	<button on:click={toggleModal}>Open Modal</button>
 	{#each people as person (person.id)}
 	<div>
 		<h4>{person.name}</h4>
