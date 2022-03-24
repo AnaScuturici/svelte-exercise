@@ -1,10 +1,10 @@
 <script>
     let showModal = true;
-
+    let isPromo = true;
 </script>
 
 {#if showModal}
-<div class="backdrop">
+<div class="backdrop" class:promo={isPromo}>
     <div class="modal">
         <p>Sign up for offers!</p>
     </div>
@@ -25,5 +25,9 @@
         margin: 10% auto;
         text-align: center;
         background: white;
+    }
+    .promo .modal {
+        background: crimson;
+        color: white;
     }
 </style>
