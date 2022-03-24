@@ -22,7 +22,8 @@
 
 <Modal message="I am a prop value" showModal={showModal} on:click={toggleModal}/> 
 <main>
-	<button on:click={toggleModal}>Open Modal</button>
+	<!--once event modifier - event only fires once-->
+	<button on:click|once={toggleModal}>Open Modal</button>
 	{#each people as person (person.id)}
 	<div>
 		<h4>{person.name}</h4>
