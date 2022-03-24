@@ -2,12 +2,10 @@
     let name;
     let color;
     let age;
-    let fighting = false;
-    let running = false;
-    let sneaking = false;
+    let skills =[];
 
     const handleSubmit = () => {
-        console.log(name, color, age, fighting, running, sneaking);
+        console.log(name, color, age, skills);
     }
 
 </script>
@@ -19,9 +17,9 @@
     <input type="text" placeholder="color" bind:value={color}>
     <input type="number" placeholder="age" bind:value={age}>
     <label>Skills:</label>
-    <input type="checkbox" bind:checked={fighting}>fighting<br>
-    <input type="checkbox" bind:checked={running}>running<br>
-    <input type="checkbox" bind:checked={sneaking}>sneaking<br>
+    <input type="checkbox" bind:group={skills} value="fighting">fighting<br>
+    <input type="checkbox" bind:group={skills} value="running">running<br>
+    <input type="checkbox" bind:group={skills} value="sneaking">sneaking<br>
     <button>Add person</button>
 </form>
 
