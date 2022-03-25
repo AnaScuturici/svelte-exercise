@@ -1,12 +1,24 @@
 <script>
+    // emit a custom event from component to parent, pass data to parent
+    import { createEventDispatcher } from "svelte";
+
+    let dispatch = createEventDispatcher();
+
     let name;
     let color;
     let age;
     let skills =[];
 
     const handleSubmit = () => {
-        console.log(name, color, age, skills);
-    }
+        const person = {
+            name,
+            color,
+            age,
+            skills,
+            id: Math.random() //not ideal way to create id...
+        };
+        dispatch("addPerson", person); //"addPerson" = custom event
+    };
 
 </script>
 

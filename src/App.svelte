@@ -18,10 +18,17 @@
 		people = people.filter(person => person.id !== id);
 	};
 
+	const addPerson = (e) => {
+		//console.log(e.detail);
+		const person = e.detail;
+		people = [person, ...people];
+		showModal = false;
+	};
+
 </script>
 
 <Modal showModal={showModal} on:click={toggleModal}>
-	<AddPersForm />
+	<AddPersForm on:addPerson={addPerson}/>
 </Modal>
 <main>
 	<button on:click|once={toggleModal}>Open Modal</button>
@@ -32,6 +39,9 @@
 		<p><strong>master ninja</strong></p>
 		 {/if}
 		<p>{person.age} years old, {person.color} belt</p>
+		{#if person.skills}
+		<p>Skills: {person.skills}</p>
+		{/if}
 		<button on:click={() => handleClick(person.id)}>Delete</button>
 	</div>
 	{:else}
