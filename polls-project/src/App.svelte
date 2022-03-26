@@ -1,11 +1,13 @@
 <script>
 	import Header from "./components/Header.svelte";
+	import Footer from "./components/Footer.svelte";
 </script>
 
 <Header />
 <main>
-	<p>Test test test</p>
+	
 </main>
+<Footer />
 
 <style>
 	main {
