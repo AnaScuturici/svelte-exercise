@@ -1,4 +1,5 @@
 <script>
+    import Card from "../shared/Card.svelte";
     export let poll;
 
     //reactive values
@@ -6,7 +7,7 @@ $: totalVotes = poll.votesA + poll.votesB;
 
 </script>
 
-<div class="poll">
+<Card class="poll">
     <h3>{ poll.question }</h3>
     <p>Total votes: {totalVotes}</p>
     <div class="answer">
@@ -17,7 +18,7 @@ $: totalVotes = poll.votesA + poll.votesB;
         <div class="percent percent-b"></div>
         <span>{ poll.answerB }({ poll.votesB })</span>
     </div>
-</div>
+</Card>
 
 <style>
     h3 {
