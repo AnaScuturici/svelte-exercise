@@ -5,18 +5,14 @@
 
     export let polls = [];
 
-    PollStore.subscribe((data) => {
+    const unsub = PollStore.subscribe((data) => {
         polls = data;
     });
 
-    onMount(() => {
-        // ex: getting data from a db
-        console.log("component mounted");
-    });
     onDestroy(() => {
         // unsub from store
-        console.log("component destroyed");
-    })
+        unsub();
+    });
 </script>
 
 <div class="poll-list">
