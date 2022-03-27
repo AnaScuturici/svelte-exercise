@@ -1,6 +1,12 @@
 <script>
+    import PollStore from "../stores/pollStore.js";
     import PollDetail from "./PollDetail.svelte";
+    
     export let polls = [];
+
+    PollStore.subscribe((data) => {
+        polls = data;
+    });
 </script>
 
 <div class="poll-list">
